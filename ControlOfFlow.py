@@ -53,5 +53,110 @@
 # 2
 # 3
 # 4
+# >>>range(5,10)
+# range(5, 10)
+# >>> for i in range(5,10):
+# ...     print(i)
+# ...
+# 5
+# 6
+# 7
+# 8
+# 9
+# >>> range(0,10,3)
+# range(0, 10, 3)
+# >>> for i in range(0,10,3):
+# ...     print(i)
+# ...
+# 0
+# 3
+# 6
+# 9
+# >>> range(-10,-100,-30)
+# range(-10, -100, -30)
+# >>> for i in range(-10,-100,-30):
+# ...     print(i)
+# ...
+# -10
+# -40
+# -70
 # >>>
+# 需要迭代链表索引的话，可以如下结合使用 range() 和 len()
+# >>> a = ['Mary','had','a','little','lamb']
+# >>> for i in range(len(a)):
+# ...     print(i,a[i])
+# ...
+# 0 Mary
+# 1 had
+# 2 a
+# 3 little
+# 4 lamb
+# >>>
+# 但是这种场合可以方便的使用 enumerate()
+# >>> print(range(10))
+# range(0, 10)
+# >>>
+#----------------
+# range()函数返回的对象有时表现为它是一个列表，但事实上他并不是。当你迭代它时，
+# 它是能够返回一个期望的序列的连续项对象；但实质上，他又不是真正的构造列表。
+# 我们把它称为 可迭代的。即适合作为那些期望从某些东西中获得连续项直到结束的函数或结构的一个目标。
+# 我们已经见过的for语句就是这样一个迭代器。list()函数是另外一个（迭代器），它从可迭代（对象）中创建列表。
+#----------------
+# >>> list(range(5))
+# [0, 1, 2, 3, 4]
+# >>>
+#-----------------------------------------------------
+# >>> for n in range(2,10):
+# ...     for x in range(2,n):
+# ...             if n % x == 0:
+# ...                     print(n,"equals",x,'*',n//x)
+# ...                     break
+# ...     else:
+# ...             print(n,'is a prime number')
+# ...
+# 2 is a prime number
+# 3 is a prime number
+# 4 equals 2 * 2
+# 5 is a prime number
+# 6 equals 2 * 3
+# 7 is a prime number
+# 8 equals 2 * 4
+# 9 equals 3 * 3
+# >>>
+# break 语句和C中的类似，用于跳出最近的一级for或while循环。
+# 循环可以有一个 else 子句；它在循环迭代完整个列表（对于for）
+# 或执行条件为false（对于while）时执行，但是循环被break中止的情况下不会执行。
 # 
+# Tips：
+#       与循环一起使用时，else 子句与try语句的 else 子句比与if语句的else子句具有更多的共同点：
+#       try语句的else子句在未出现异常时运行，循环的else子句在未出现break时运行。
+#-----------------
+# continue 语句是从C语言借鉴过来的，他表示循环继续执行下一次迭代。
+#-----------------
+# >>> for num in range(2,10):
+# ...     if num % 2 == 0:
+# ...             print("Found an even number:",num)
+# ...             continue
+# ...     print("Found a number",num)
+# ...
+# Found an even number: 2
+# Found a number 3
+# Found an even number: 4
+# Found a number 5
+# Found an even number: 6
+# Found a number 7
+# Found an even number: 8
+# Found a number 9
+# >>>
+#----------------
+# pass语句
+#----------------
+#>>> while True:
+# ...     pass
+# ...
+# >>> class MyEmptyClass:
+# ...     pass
+# ...
+# pass 语句什么也不做。它用于那些语法上必须要有什么语句，但程序什么也不做的场合。
+# 通常用于创建最小结构的类。
+# 另一方面，pass 可以在创建新代码的时候用来做函数或控制体的占位符。可以让我们在更加抽象的级别上思考。
