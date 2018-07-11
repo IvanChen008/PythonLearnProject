@@ -20,3 +20,33 @@ def abc():
     print("abc")
 ##调用函数：函数名()
 abc()
+# 参数：与外部沟通的接口
+# 参数分为形参和实参
+# -------------------------
+# 模块的导入
+import cgi
+from cgi import closelog
+
+# 模块的类别
+# 1、自带模块
+# 2、第三方模块
+# 3、自定义模块
+
+# 第三方模块的安装
+# 1、pip方式           *（网络安装）
+# 2、whl下载安装        *（下载安装）
+# 3、直接复制的方式     *（）
+# 4、anaconda
+
+# 异常处理
+# 异常处理的格式
+'''
+try:
+    pass(程序)
+except expression as 异常名称:
+    pass（异常处理部分）
+'''
+try:
+    pass
+except Exception as err:
+    pass
