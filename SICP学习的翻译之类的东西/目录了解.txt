@@ -1,0 +1,21 @@
+MIT(麻省理工缩写)：Massachusetts(/,mæsə'tʃu:sits/) Institute of Technology
+
+SICP(计算机程序的结构和解释):Structure and Interpretation of Computer Programs
+
+emphasize vt. 强调，着重
+
+curricula n. 课程（curriculum的复数形式)
+
+Teach Yourself Programming in Ten Years----Peter Norvig
+
+Researchers (Bloom (1985), Bryan & Harter (1899), Hayes (1989), Simmon & Chase (1973)) 
+have shown it takes about ten years to develop expertise in any of a wide variety of areas, 
+including chess playing, music composition, telegraph operation, painting, piano playing, swimming, tennis,
+and research in neuropsychology and topology. The key is deliberative practice: 
+not just doing it again and again, but challenging yourself with a task that is just beyond your current ability,
+trying it, analyzing your performance while and after doing it, and correcting any mistakes.
+Then repeat. And repeat again. There appear to be no real shortcuts: even Mozart, who was a musical 
+prodigy at age 4, took 13 more years before he began to produce world-class music. In another genre, the Beatles 
+seemed to burst onto the scene with a string of #1 hits and an appearance on the Ed Sullivan show in 1964. 
+But they had been playing small clubs in Liverpool and Hamburg since 1957, and while 
+they had mass appeal early on, their first great critical success, Sgt. Peppers, was released in 1967. 
