@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
     "python.pythonPath": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python36\\python.exe"
+=======
+    "python.linting.pylintEnabled": false
+>>>>>>> 4ac38376c4514c67e9c5cd590e00f3e61de2009b
 }
