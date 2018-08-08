@@ -21,15 +21,15 @@
     所以高级语言通常都内置了一套try...except...finally...的错误处理机制，Python也不例外。
 '''
 # try...except...finally
-try:
-    print('try')
-    r = 10/0
-    print('result:',r)
-except ZeroDivisionError as e:
-    print('except:',e)
-finally:
-    print('finally...')
-print('END')
+# try:
+#     print('try')
+#     r = 10/0
+#     print('result:',r)
+# except ZeroDivisionError as e:
+#     print('except:',e)
+# finally:
+#     print('finally...')
+# print('END')
 '''
     当我们认为某些代码可能会出错时，就可以用try来运行这段代码，如果执行出错，则后续代码不会继续执行，而
     是直接跳转至错误处理代码，即except语句块，执行完except后，如果有finally语句块，则执行finally语句
@@ -81,4 +81,61 @@ print('END')
 '''
     Python内置的try...except...finally用来处理错误十分方便。出错时，会分析错误信息并定位错误发生的代码位置才是最关键的。
     程序也可以主动抛出错误，让调用者来处理相应的错误。但是应该在文档中写清楚可能会抛出那些错误，以及错误产生的原因。
+'''
+# ==============
+# 调试 DEBUG
+# ==============
+'''
+    程序能一次写完并正常运行的概率很小，基本不超过1%。总会有各种各样的bug需要修正。有的bug很简单，看看错误信息就知道，有的
+    bug很复杂，我们需要知道出错时，哪些变量的值是正确的，哪些变量的值是错误的，因此，需要一整套调试程序的手段来修复bug。
+
+    第一种方法简单直接粗暴有效，就是用print()把可能有问题的变量打印出来看看。用print()最大的坏处是将来还得删掉它，想想程序
+    里到处都是print()，运行结果也会包含很多垃圾信息。所以，我们又有第二种方法。  
+'''
+# 断言
+'''
+    凡是使用print()来辅助查看的地方，都可以用断言（assert）来代替。
+    assert的意思是，表达式n!=0应该是True，否则，根据程序运行的逻辑，后面的代码肯定会出错。如果断言失败，assert语句本身就会
+    抛出AssertionError。
+    但是程序中如果到处充斥着assert，和到处都是print()相比也好不到哪去。不过启动Python解释器时，可以用-O参数来关闭assert.
+    关闭后，你可以把所有的assert语句当做pass来看。
+'''
+# def foo(s):
+#     n = int(s)
+#     assert n!=0,'n is zero!'
+#     return 10/n
+# def main():
+#     foo('0')
+# main()
+# ====================
+# logging
+'''
+    把print()替换为logging是第三种方式，和assert比，logging不会抛出错误，而且可以输出到文件。
+    logging.info()就可以输出一段文本。运行，发现除了ZeroDivisionError，没有任何信息。但是为了看到更多的信息，需要在import logging
+    之后添加一行配置。
+    logging.basicConfig(level=logging.INFO)
+    这就logging的好处，它允许你指定记录信息的级别，有debug，info，warning，error等几个级别，当我们指定level=INFO时，logging.debug就不起
+    作用了。同理，指定level=WARNING后，debug和info就不起作用了。这样一来，你就可以放心地输出不同级别的信息，也不用删除，最后统一控制输出
+    哪个级别的信息。
+    logging的另一个好处是通过简单的配置，一条语句可以同时输出到不同的地方，比如console和文件。
+'''
+# pdb
+'''
+    第四种方式是启动Python的调试器pdb，让程序以单步方式运行，可以随时查看运行状态。然后以参数 -m pdb 启动，pdb定位到下一步要执行的代码。
+    然后输入命令1来查看代码。任何时候都可以输入命令‘p 变量名’来查看变量。最后从输入q结束调试，退出程序。
+    这种通过pdb在命令行调试的方法理论上是万能的，但是实在太麻烦了，如果有一千行代码，要运行到999行的敲多少命令啊。
+    于是另一种 pdb.set_trace() 这个方法也是使用pdb，但是不需要单步执行，我们只需要 import pdb，然后，在可能出错的地方放一个pdb.set_trace()，
+    就可以设置一个端点。
+    运行代码，程序会自动在pdb.set_trace()的地方暂停并进入pdb调试环境，可以用命令p查看变量，或者用命令c继续执行。虽然这个方法比单步
+    调试效率要高很多，但是也高不到哪里去。
+'''
+# IDE
+'''
+    如果要比较爽地设置端点、单步执行，就需要一个支持调试功能的IDE目前比较好的Python IDE有：
+    Visual Studio Code
+    PyCharm
+'''
+'''
+写程序最痛苦的事情莫过于调试，程序往往会以你意想不到的流程来运行，你期待执行的语句其实根本没有执行，这时候，就需要调试了。
+虽然IDE调试起来比较方便，但是最后你会发现，logging才是终极武器。
 '''
