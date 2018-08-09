@@ -1,0 +1,2 @@
+Flask 有两个主要依赖；路由、调试和Web服务器网关接口（Web Server Gateway Interface，WSGI）子系统由WerKzeng（http://werkzeng.pocoo.org）提供，模板系统由Jinja2(Http://jinja.pocoo.org)提供。Werkzeng和Jinja2都是由Flask的核心开发者开发而成的。
+Flask并不原生支持数据库访问、Web表单验证和用户认证等高级功能。这些功能以及其他大多数Web程序中需要的核心服务都以扩展形式实现，然后再与核心包集成。开发者可以任意挑选符合项目需求的扩展，甚至可以自行开发。这和大型开发框架做法相反，大型框架往往已经替你做出了大多数决定，难以（有时甚至不允许）使用替代方案。
